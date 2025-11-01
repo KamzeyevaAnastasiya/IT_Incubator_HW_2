@@ -1,25 +1,74 @@
 .sidebar {
+    position: fixed;
+    top: 0;
+    left: -100%; /* Скрыто за левым краем */
+    width: 320px;
+    height: 100vh;
+    background: #fff;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+    transition: left 0.3s ease-in-out;
+    z-index: 1000;
+    padding: 64px 24px 64px 70px;
 }
 
 .sidebar.open {
+    left: 0;
 }
 
 .background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease-in-out;
+    z-index: 999;
 }
 
 .nav {
+    display: flex;
+    flex-direction: column;
+    gap: 45px;
 }
 
 .nav a {
+    font-weight: 600;
+    font-size: 22px;
+    cursor: pointer;
+    color: #000;
+    text-decoration: none;
+}
+
+.nav a:first-child {
+    color: #0059b2;
+    text-decoration: underline;
+    text-decoration-skip-ink: none;
 }
 
 .nav a:hover {
+    color: #58acff;
 }
 
 .nav a.active {
+    color: #3d6b99;
 }
+
 .close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
 }
 
 .close img {
+    width: 24px;
+    height: 24px;
 }
+
+
