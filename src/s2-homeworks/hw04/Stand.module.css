@@ -1,8 +1,8 @@
 .stand {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    flex-direction: row !important;
+    align-items: flex-start;
+    flex-direction: row;
     margin-top: 70px;
 }
 
