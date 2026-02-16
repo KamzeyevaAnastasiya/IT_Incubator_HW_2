@@ -41,7 +41,7 @@ const HW10 = () => {
                         id={'hw10-button-start-loading'}
                         onClick={setLoading}
                     >
-                        Set loading...
+                        Set loading..
                     </SuperButton>
                 )}
             </div>
