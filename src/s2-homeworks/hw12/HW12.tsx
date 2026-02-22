@@ -1,4 +1,5 @@
 import React, {useEffect} from 'react'
+import {AppStoreType} from "../hw10/bll/store";
 import s from './HW12.module.css'
 import s2 from '../../s1-main/App.module.css'
 import SuperSelect from '../hw07/common/c5-SuperSelect/SuperSelect'
@@ -20,10 +21,12 @@ const themes = [
 
 const HW12 = () => {
     // взять ид темы из редакса
-    const themeId = 1
+    const dispatch = useDispatch()
+    const themeId = useSelector<AppStoreType>(state => state.theme.themeId)
 
-    const change = (id: any) => { // дописать функцию
 
+    const change = (id: number) => { // дописать функцию
+        dispatch(changeThemeId(id))
     }
 
     useEffect(() => {
@@ -33,7 +36,7 @@ const HW12 = () => {
     return (
         <div id={'hw12'}>
             <div id={'hw12-text'} className={s2.hwTitle}>
-                Homework #12
+                Homework №12
             </div>
 
             <div className={s2.hw}>
@@ -41,7 +44,8 @@ const HW12 = () => {
                     id={'hw12-select-theme'}
                     className={s.select}
                     // сделать переключение тем
-
+                    options={themes}
+                    onChangeOption={change}
                 />
             </div>
         </div>
