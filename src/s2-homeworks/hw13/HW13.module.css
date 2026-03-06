@@ -1,22 +1,45 @@
 .buttonsContainer {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
 }
 
 .responseContainer {
+    display: flex;
+    gap: 90px;
+    align-items: center;
+    justify-content: center;
+    margin: 50px auto;
+    flex-wrap: wrap;
 }
 
 .imageContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .image {
+    object-fit: contain
 }
 
-.textContainer{
+.textContainer {
+    font-weight: 500;
+    color: #000;
+    width: 500px;
+    overflow-wrap: break-word;
+    text-align: left;
 }
 
 .code {
+    font-size: 30px;
+    margin-bottom: 12px;
 }
 
 .text {
+    font-size: 16px;
 }
+
 .info {
+    font-size: 16px;
 }
