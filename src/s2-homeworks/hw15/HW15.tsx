@@ -52,59 +52,62 @@ const HW15 = () => {
         getTechs(params)
             .then((res) => {
                 // делает студент
+                // сохранить пришедшие данные
                 if (res) {
                     setTechs(res.data.techs)
                     setTotalCount(res.data.totalCount)
                 }
-                setLoading(false)
-                // сохранить пришедшие данные
-                //
             })
+            .finally(() => setLoading(false))
     }
 
     const onChangePagination = (newPage: number, newCount: number) => {
         // делает студент
-
         // setPage(
         // setCount(
-        setPage(newPage)
-        setCount(newCount)
         // sendQuery(
         // setSearchParams(
-        sendQuery({sort, page: newPage, count: newCount})
-        setSearchParams({sort, page: String(newPage), count: String(newCount)})
-        //
+        setPage(newPage)
+        setCount(newCount)
+
+        setSearchParams({
+            sort,
+            page: String(newPage),
+            count: String(newCount),
+        })
     }
 
     const onChangeSort = (newSort: string) => {
         // делает студент
-
         // setSort(
         // setPage(1) // при сортировке сбрасывать на 1 страницу
-        setSort(newSort)
-        setPage(1)
         // sendQuery(
         // setSearchParams(
-        sendQuery({sort: newSort, page: 1, count})
-        setSearchParams({sort: newSort, page: '1', count: String(count)})
-        //
+        setSort(newSort)
+        setPage(1)
+
+        setSearchParams({
+            sort: newSort,
+            page: '1',
+            count: String(count),
+        })
     }
 
     useEffect(() => {
         const params = Object.fromEntries(searchParams)
 
-        const page = Number(params.page) || 1
-        const count = Number(params.count) || 4
-        const sort = params.sort || ''
+        const newPage = Number(params.page) || 1
+        const newCount = Number(params.count) || 4
+        const newSort = params.sort || ''
 
-        setPage(page)
-        setCount(count)
-        setSort(sort)
+        setPage(newPage)
+        setCount(newCount)
+        setSort(newSort)
 
         sendQuery({
-            page,
-            count,
-            sort,
+            page: newPage,
+            count: newCount,
+            sort: newSort,
         })
     }, [searchParams])
 
